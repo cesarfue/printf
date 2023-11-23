@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pf_putchar.c                                    :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cefuente <cefuente@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 21:03:29 by cesar             #+#    #+#             */
-/*   Updated: 2023/11/23 12:25:28 by cefuente         ###   ########.fr       */
+/*   Created: 2023/11/21 13:22:22 by cesar             #+#    #+#             */
+/*   Updated: 2023/11/21 16:32:10 by cesar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "libft.h"
 
-void	ft_pf_putchar(char c, size_t *p_ret)
+t_list	*ft_lstlast(t_list *lst)
 {
-	write(1, &c, 1);
-	(*p_ret)++;
+	if (!lst)
+		return (NULL);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
 }

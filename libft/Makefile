@@ -6,7 +6,7 @@
 #    By: cesar <cesar@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/03 18:46:17 by cefuente          #+#    #+#              #
-#    Updated: 2023/11/20 18:18:39 by cesar            ###   ########.fr        #
+#    Updated: 2023/11/21 16:46:01 by cesar            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,34 +43,49 @@ SRCS	=	ft_atoi.c \
 	ft_strtrim.c \
 	ft_substr.c \
 	ft_tolower.c \
-	ft_toupper.c
+	ft_toupper.c 
 
-OBJS	=	${SRCS:.c=.o}
+BNS	=	ft_lstadd_back_bonus.c \
+	ft_lstadd_front_bonus.c \
+    ft_lstclear_bonus.c \
+    ft_lstdelone_bonus.c \
+	ft_lstiter_bonus.c \
+	ft_lstlast_bonus.c \
+	ft_lstmap_bonus.c \
+	ft_lstnew_bonus.c \
+	ft_lstsize_bonus.c
 
-HEADER	= libft.h
+OBJS    =    ${SRCS:.c=.o}
 
-NAME	=	libft.a
+B_OBJS    =    ${BNS:.c=.o}
 
-CC	= cc
+HEADER    =    libft.h
 
-AR	= ar -rc
+NAME    =    libft.a
 
-FLAGS	= -Wall -Wextra -Werror -I ../includes/
+CC        =    cc
 
-all	:	${NAME}
+AR        =    ar -rc
 
-%.o	:	%.c ${HEADER}
+FLAGS    =    -Wall -Wextra -Werror
+
+all        :    ${NAME}
+
+%.o        :    %.c ${HEADER}
 	${CC} ${FLAGS} -c $< -o $@
 
-${NAME}:	${OBJS} Makefile
+${NAME}    :    ${OBJS} Makefile
 	${AR} ${NAME} ${OBJS}
 
-clean:
-	rm -f ${OBJS}
+bonus    :
+	@make SRCS="${SRCS} ${BNS}"
 
-fclean: clean
-	rm -f ${NAME}
+clean    :
+	rm -f ${OBJS} ${B_OBJS}
 
-re:	fclean all
+fclean    :    clean
+	rm -f ${NAME} ${B_OBJS}
 
-.PHONY: all clean fclean re 
+re        :    fclean all
+
+.PHONY    :    all clean fclean re bonus

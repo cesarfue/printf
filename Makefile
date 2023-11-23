@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cesar <cesar@student.42.fr>                +#+  +:+       +#+         #
+#    By: cefuente <cefuente@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/03 18:46:17 by cefuente          #+#    #+#              #
-#    Updated: 2023/11/23 00:07:05 by cesar            ###   ########.fr        #
+#    Updated: 2023/11/23 12:23:56 by cefuente         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,11 @@ SRCS	=	ft_intlen.c \
 			ft_pf_putchar.c \
 			ft_pf_putnbr.c \
 			ft_pf_putptr.c \
+			ft_pf_putptrhigh.c \
+			ft_pf_putptrlow.c \
 			ft_pf_putstr.c \
-			ft_pf_strlen.c \
 			ft_printf.c \
+			ft_strlen.c \
 			main.c
 
 OBJS    =    ${SRCS:.c=.o}

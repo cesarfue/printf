@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pf_putchar.c                                    :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cefuente <cefuente@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 21:03:29 by cesar             #+#    #+#             */
-/*   Updated: 2023/11/23 12:25:28 by cefuente         ###   ########.fr       */
+/*   Created: 2023/11/21 13:32:41 by cesar             #+#    #+#             */
+/*   Updated: 2023/11/22 15:59:59 by cefuente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "libft.h"
 
-void	ft_pf_putchar(char c, size_t *p_ret)
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	write(1, &c, 1);
-	(*p_ret)++;
+	if (!lst || !del)
+		return ;
+	del(lst->content);
+	free(lst);
 }

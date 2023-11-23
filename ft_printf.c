@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cefuente <cefuente@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 18:21:56 by cesar             #+#    #+#             */
-/*   Updated: 2023/11/23 00:20:31 by cesar            ###   ########.fr       */
+/*   Updated: 2023/11/23 12:18:59 by cefuente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			ft_pf_putchar(format[i]);
+			ft_pf_putchar(format[i], p_ret);
 			ret++;
 		}
 		else if (format[i] == '%')
@@ -49,12 +49,12 @@ void	switch_strings(const char c, va_list args, size_t *p_ret)
 	if (c == 'c')
 	{
 		p_char = (char) va_arg(args, int);
-		*p_ret += ft_pf_putchar(p_char);
+		ft_pf_putchar(p_char, p_ret);
 	}
 	else if (c == 's')
 	{
 		p_str = (const char *)va_arg(args, char *);
-		*p_ret += ft_pf_putstr((char *)p_str);
+		ft_pf_putstr((char *)p_str, p_ret);
 	}
 	else
 		switch_decimals(c, args, p_ret);
@@ -68,7 +68,7 @@ void	switch_decimals(const char c, va_list args, size_t *p_ret)
 	if (c == 'd')
 	{
 		p_int = va_arg(args, int);
-		*p_ret += ft_pf_putnbr(p_int);
+		ft_pf_putnbr(p_int, p_ret);
 	}
 	else
 		switch_hexa(c, args, p_ret);
@@ -82,7 +82,20 @@ void	switch_hexa(const char c, va_list args, size_t *p_ret)
 	if (c == 'p')
 	{
 		p_ptr = (uintptr_t)va_arg(args, void *);
-		*p_ret += ((ft_pf_putstr("0x")) + ft_pf_putptr(p_ptr));
+		ft_pf_putstr("0x", p_ret);
+		ft_pf_putptr(p_ptr, p_ret);
+	}
+	else if (c == 'x')
+	{
+		p_ptr = (uintptr_t) va_args(args, void *);
+		ft_pf_putstr("0x", p_ret);
+		ft_pf_putptrlow(p_ptr, p_ret); 
+	}
+	else if (c == 'X')
+	{
+		p_ptr = (uintptr_t) va_args(args, void *);
+		ft_pf_putstr("0x", p_ret);
+		ft_pf_putptrhigh(p_ptr, p_ret); 
 	}
 	return ;
 }

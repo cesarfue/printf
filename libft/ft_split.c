@@ -6,7 +6,7 @@
 /*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 07:07:18 by cesar             #+#    #+#             */
-/*   Updated: 2023/11/21 08:23:12 by cesar            ###   ########.fr       */
+/*   Updated: 2023/11/20 15:37:11 by cesar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,20 +104,4 @@ char	**ft_split(char const *str, char c)
 	}
 	splat[l] = NULL;
 	return (splat);
-}
-
-#include <stdio.h>
-int	main(int argc, char **argv)
-{
-	char **out;
-	size_t	i;
-
-	i = 0;
-	if (argc == 3)
-	{
-		out = ft_split(argv[1], argv[2][0]);
-		while (out[i])
-			printf("%s\n", out[i++]);
-	}
-	return (0);
 }

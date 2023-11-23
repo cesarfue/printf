@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pf_putchar.c                                    :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cefuente <cefuente@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 21:03:29 by cesar             #+#    #+#             */
-/*   Updated: 2023/11/23 12:25:28 by cefuente         ###   ########.fr       */
+/*   Created: 2023/11/21 13:39:17 by cesar             #+#    #+#             */
+/*   Updated: 2023/11/22 16:02:32 by cefuente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "libft.h"
 
-void	ft_pf_putchar(char c, size_t *p_ret)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	write(1, &c, 1);
-	(*p_ret)++;
+	t_list	*tmp;
+
+	if (!*lst || !del)
+		return ;
+	while (*lst != NULL)
+	{
+		tmp = (*lst)->next;
+		del((*lst)->content);
+		free(*lst);
+		*lst = tmp;
+	}
+	*lst = NULL;
 }
