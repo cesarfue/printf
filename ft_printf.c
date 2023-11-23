@@ -6,7 +6,7 @@
 /*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 18:21:56 by cesar             #+#    #+#             */
-/*   Updated: 2023/11/23 19:30:00 by cesar            ###   ########.fr       */
+/*   Updated: 2023/11/23 19:36:40 by cesar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_printf(const char *format, ...)
 			ft_pf_putchar(format[i], p_ret);
 		else if (format[i++] == '%')
 		{
-			while (!(ft_strchr("cspdiuxX%", format[i]) && format[i]))
+			while (!(ft_pf_strchr("cspdiuxX%", format[i]) && format[i]))
 				i++;
 			switch_strings(format[i], args, p_ret);
 		}

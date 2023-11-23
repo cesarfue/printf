@@ -6,13 +6,13 @@
 /*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 10:20:14 by cefuente          #+#    #+#             */
-/*   Updated: 2023/11/23 19:31:06 by cesar            ###   ########.fr       */
+/*   Updated: 2023/11/23 19:35:07 by cesar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 
-int	ft_strchr(const char *s, char c)
+int	ft_pf_strchr(const char *s, char c)
 {
 	size_t	i;
 
@@ -26,7 +26,7 @@ int	ft_strchr(const char *s, char c)
 	return (0);
 }
 
-size_t	ft_strlen(const char *str)
+size_t	ft_pf_strlen(const char *str)
 {
 	size_t	i;
 

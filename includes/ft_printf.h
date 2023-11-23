@@ -6,7 +6,7 @@
 /*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 07:46:43 by cesar             #+#    #+#             */
-/*   Updated: 2023/11/23 17:22:52 by cesar            ###   ########.fr       */
+/*   Updated: 2023/11/23 19:36:28 by cesar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 
 # include <stdarg.h>
 # include <unistd.h>
-# include <stdlib.h>
 # include <stdint.h>
-# include <limits.h>
-# include <stdio.h>
 
 int		ft_printf(const char *format, ...);
 void	switch_strings(const char c, va_list args, size_t *p_ret);
@@ -35,6 +32,6 @@ void	ft_pf_putptrhigh(uintptr_t p_ptr, size_t *p_ret);
 
 size_t	ft_strlen(const char *str);
 size_t	ft_intlen(int n);
-int		ft_strchr(const char *s, char c);
+int		ft_pf_strchr(const char *s, char c);
 
 #endif
