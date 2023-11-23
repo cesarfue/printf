@@ -6,7 +6,7 @@
 /*   By: cefuente <cefuente@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 08:25:54 by cesar             #+#    #+#             */
-/*   Updated: 2023/11/23 11:59:36 by cefuente         ###   ########.fr       */
+/*   Updated: 2023/11/23 14:15:04 by cefuente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	ft_pf_putstr(char *s, size_t *p_ret)
 	i = 0;
 	while (s[i])
 		i++;
-	write(1, &s[0], i);
-	*p_ret += i;
+	if (write(1, &s[0], i) == (ssize_t)i)
+		*p_ret += i;
 }

@@ -6,7 +6,7 @@
 /*   By: cefuente <cefuente@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 21:03:29 by cesar             #+#    #+#             */
-/*   Updated: 2023/11/23 12:25:28 by cefuente         ###   ########.fr       */
+/*   Updated: 2023/11/23 13:29:55 by cefuente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_pf_putchar(char c, size_t *p_ret)
 {
-	write(1, &c, 1);
-	(*p_ret)++;
+	if (write(1, &c, 1))
+		(*p_ret)++;
 }

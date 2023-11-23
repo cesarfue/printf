@@ -6,7 +6,7 @@
 /*   By: cefuente <cefuente@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 12:07:39 by cefuente          #+#    #+#             */
-/*   Updated: 2023/11/23 12:28:43 by cefuente         ###   ########.fr       */
+/*   Updated: 2023/11/23 14:13:46 by cefuente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	ft_pf_putptrhigh(uintptr_t p_ptr, size_t *p_ret)
 	base = "0123456789ABCDEF";
 	if (p_ptr < 16)
 	{
-		write(1, &base[p_ptr % 16], 1);
-		(*p_ret)++;
+		if (write(1, &base[p_ptr % 16], 1))
+			(*p_ret)++;
 	}
 	else
 	{
