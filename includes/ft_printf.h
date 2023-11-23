@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cefuente <cefuente@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 07:46:43 by cesar             #+#    #+#             */
-/*   Updated: 2023/11/23 13:56:56 by cefuente         ###   ########.fr       */
+/*   Updated: 2023/11/23 17:22:52 by cesar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ void	ft_pf_putptrhigh(uintptr_t p_ptr, size_t *p_ret);
 
 size_t	ft_strlen(const char *str);
 size_t	ft_intlen(int n);
+int		ft_strchr(const char *s, char c);
 
 #endif

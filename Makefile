@@ -3,48 +3,50 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cefuente <cefuente@student.42.fr>          +#+  +:+       +#+         #
+#    By: cesar <cesar@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/03 18:46:17 by cefuente          #+#    #+#              #
-#    Updated: 2023/11/23 12:23:56 by cefuente         ###   ########.fr        #
+#    Updated: 2023/11/23 19:32:02 by cesar            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	=	ft_intlen.c \
-			ft_pf_putchar.c \
-			ft_pf_putnbr.c \
-			ft_pf_putptr.c \
-			ft_pf_putptrhigh.c \
-			ft_pf_putptrlow.c \
-			ft_pf_putstr.c \
-			ft_printf.c \
-			ft_strlen.c \
-			main.c
+SRCS	=	ft_numbers.c \
+	ft_strings.c \
+	ft_switch.c \
+	ft_printf.c 
+
+BNS = 
 
 OBJS    =    ${SRCS:.c=.o}
-OBJS	:= $(addprefix build/, $(OBJS))
+
+B_OBJS    =    ${BNS:.c=.o}
 
 HEADER    =    includes/ft_printf.h
 
-NAME    =    a.out
+NAME    =    libftprintf.a
 
 CC        =    cc
 
-FLAGS    =    -Wall -Wextra -Werror -I includes
+AR        =    ar -rc
+
+FLAGS    =    -Wall -Wextra -Werror
 
 all        :    ${NAME}
 
-build/%.o        :    %.c ${HEADER}
+%.o        :    %.c ${HEADER}
 	${CC} ${FLAGS} -c $< -o $@
 
-${NAME}    :    ${OBJS}
-	${CC} ${FLAGS} -o ${NAME} ${OBJS}
+${NAME}    :    ${OBJS} Makefile
+	${AR} ${NAME} ${OBJS}
+
+bonus    :
+	@make SRCS="${SRCS} ${BNS}"
 
 clean    :
-	rm -f build/*.o
+	rm -f ${OBJS} ${B_OBJS}
 
 fclean    :    clean
-	rm -f ${NAME}
+	rm -f ${NAME} ${B_OBJS}
 
 re        :    fclean all
 
