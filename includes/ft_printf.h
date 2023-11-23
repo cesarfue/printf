@@ -6,7 +6,7 @@
 /*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 07:46:43 by cesar             #+#    #+#             */
-/*   Updated: 2023/11/22 11:48:24 by cesar            ###   ########.fr       */
+/*   Updated: 2023/11/23 00:05:34 by cesar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,15 @@
 # include <stdio.h>
 
 int		ft_printf(const char *format, ...);
-void	flag_id(const char c, va_list args, size_t *p_ret);
-void	ft_putchar(char c);
-void	ft_putstr(char *s);
-void	ft_putnbr(int n);
+void	switch_strings(const char c, va_list args, size_t *p_ret);
+void	switch_decimals(const char c, va_list args, size_t *p_ret);
+void	switch_hexa(const char c, va_list args, size_t *p_ret);
+
+size_t	ft_pf_putchar(char c);
+size_t	ft_pf_putstr(char *s);
+size_t	ft_pf_putptr(uintptr_t p_ptr);
+size_t	ft_pf_putnbr(int n);
+size_t	ft_pf_strlen(const char *str);
 size_t	ft_intlen(int n);
-size_t	ft_strlen(const char *str);
 
 #endif

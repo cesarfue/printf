@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_pf_putstr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 09:33:59 by cefuente          #+#    #+#             */
-/*   Updated: 2023/11/22 08:08:53 by cesar            ###   ########.fr       */
+/*   Created: 2023/11/15 08:25:54 by cesar             #+#    #+#             */
+/*   Updated: 2023/11/23 00:09:18 by cesar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 
-size_t	ft_strlen(const char *str)
+size_t	ft_pf_putstr(char *s)
 {
 	size_t	i;
 
 	i = 0;
-	while (str[i])
+	while (s[i])
 		i++;
+	write(1, &s[0], i);
 	return (i);
 }
