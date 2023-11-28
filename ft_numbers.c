@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_numbers.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cefuente <cefuente@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 20:27:55 by cesar             #+#    #+#             */
-/*   Updated: 2023/11/23 18:40:26 by cesar            ###   ########.fr       */
+/*   Updated: 2023/11/28 15:50:37 by cefuente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 
-void	ft_pf_putnbr(int n, size_t *p_ret)
+void	ft_pf_putnbr(long n, size_t *p_ret)
 {
 	if (n == -2147483648)
 	{

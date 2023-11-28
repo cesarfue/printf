@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cefuente <cefuente@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 07:46:43 by cesar             #+#    #+#             */
-/*   Updated: 2023/11/23 19:36:28 by cesar            ###   ########.fr       */
+/*   Updated: 2023/11/28 15:51:13 by cefuente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	switch_else(const char c, size_t *p_ret);
 
 void	ft_pf_putchar(char c, size_t *p_ret);
 void	ft_pf_putstr(char *s, size_t *p_ret);
-void	ft_pf_putnbr(int n, size_t *p_ret);
+void	ft_pf_putnbr(long n, size_t *p_ret);
 void	ft_pf_putptr(uintptr_t p_ptr, size_t *p_ret);
 void	ft_pf_putptrlow(uintptr_t p_ptr, size_t *p_ret);
 void	ft_pf_putptrhigh(uintptr_t p_ptr, size_t *p_ret);

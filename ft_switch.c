@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_switch.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cefuente <cefuente@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 18:42:34 by cesar             #+#    #+#             */
-/*   Updated: 2023/11/23 19:28:48 by cesar            ###   ########.fr       */
+/*   Updated: 2023/11/28 15:48:25 by cefuente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ void	switch_hexa(const char c, va_list args, size_t *p_ret)
 	if (c == 'p')
 	{
 		p_ptr = (uintptr_t)va_arg(args, void *);
+		if (!p_ptr)
+			return (ft_pf_putstr("(nil)", p_ret));
 		ft_pf_putstr("0x", p_ret);
 		ft_pf_putptr(p_ptr, p_ret);
 	}
