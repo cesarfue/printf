@@ -6,7 +6,7 @@
 #    By: cesar <cesar@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/03 18:46:17 by cefuente          #+#    #+#              #
-#    Updated: 2023/11/23 19:28:37 by cesar            ###   ########.fr        #
+#    Updated: 2023/11/28 17:43:04 by cesar            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ NAME    =    a.out
 
 CC        =    cc
 
-FLAGS    =    -Wall -Wextra -Werror -I includes
+FLAGS    =    -I includes
 
 all        :    ${NAME}
 
