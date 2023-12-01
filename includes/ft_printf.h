@@ -6,7 +6,7 @@
 /*   By: cefuente <cefuente@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 07:46:43 by cesar             #+#    #+#             */
-/*   Updated: 2023/12/01 17:54:17 by cefuente         ###   ########.fr       */
+/*   Updated: 2023/12/01 18:32:10 by cefuente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	ft_pf_putchar(char c, ssize_t *p_ret);
 void	ft_pf_putstr(char *s, ssize_t *p_ret);
 void	ft_pf_putnbr(long n, ssize_t *p_ret);
 void	ft_pf_putptr(uintptr_t p_ptr, ssize_t *p_ret);
-void	ft_pf_putptrlow(uintptr_t p_ptr, ssize_t *p_ret);
-void	ft_pf_putptrhigh(uintptr_t p_ptr, ssize_t *p_ret);
+void	ft_pf_putptrlow(unsigned int x_ptr, ssize_t *p_ret);
+void	ft_pf_putptrhigh(unsigned int x_ptr, ssize_t *p_ret);
 
 size_t	ft_pf_strlen(const char *str);
 size_t	ft_intlen(int n);

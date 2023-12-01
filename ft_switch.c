@@ -6,7 +6,7 @@
 /*   By: cefuente <cefuente@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 18:42:34 by cesar             #+#    #+#             */
-/*   Updated: 2023/12/01 17:52:59 by cefuente         ###   ########.fr       */
+/*   Updated: 2023/12/01 18:37:22 by cefuente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ void	switch_decimals(const char c, va_list args, ssize_t *p_ret)
 
 void	switch_hexa(const char c, va_list args, ssize_t *p_ret)
 {
-	uintptr_t	p_ptr;
+	uintptr_t		p_ptr;
+	unsigned int	x_ptr;
 
 	if (c == 'p')
 	{
@@ -69,13 +70,11 @@ void	switch_hexa(const char c, va_list args, ssize_t *p_ret)
 	}
 	else if (c == 'x')
 	{
-		p_ptr = (uintptr_t) va_arg(args, void *);
-		ft_pf_putptrlow(p_ptr, p_ret);
+		x_ptr = (uintptr_t)va_arg(args, void *);
+		ft_pf_putptrlow(x_ptr, p_ret);
 	}
 	else if (c == 'X')
-	{
-		ft_pf_putptrhigh((p_ptr = (uintptr_t) va_arg(args, void *)), p_ret);
-	}
+		ft_pf_putptrhigh((x_ptr = (uintptr_t)va_arg(args, void *)), p_ret);
 	else
 		switch_else(c, p_ret);
 	return ;
