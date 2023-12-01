@@ -6,13 +6,13 @@
 /*   By: cefuente <cefuente@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 20:27:55 by cesar             #+#    #+#             */
-/*   Updated: 2023/11/28 15:50:37 by cefuente         ###   ########.fr       */
+/*   Updated: 2023/12/01 18:16:22 by cefuente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 
-void	ft_pf_putnbr(long n, size_t *p_ret)
+void	ft_pf_putnbr(long n, ssize_t *p_ret)
 {
 	if (n == -2147483648)
 	{
@@ -35,11 +35,12 @@ void	ft_pf_putnbr(long n, size_t *p_ret)
 	}
 }
 
-void	ft_pf_putptr(uintptr_t p_ptr, size_t *p_ret)
+void	ft_pf_putptr(uintptr_t p_ptr, ssize_t *p_ret)
 {
 	const char	*base;
 
 	base = "0123456789abcdef";
+	
 	if (p_ptr < 16)
 	{
 		if (write(1, &base[p_ptr % 16], 1))
@@ -52,7 +53,7 @@ void	ft_pf_putptr(uintptr_t p_ptr, size_t *p_ret)
 	}
 }
 
-void	ft_pf_putptrhigh(uintptr_t p_ptr, size_t *p_ret)
+void	ft_pf_putptrhigh(uintptr_t p_ptr, ssize_t *p_ret)
 {
 	const char	*base;
 
@@ -69,7 +70,7 @@ void	ft_pf_putptrhigh(uintptr_t p_ptr, size_t *p_ret)
 	}
 }
 
-void	ft_pf_putptrlow(uintptr_t p_ptr, size_t *p_ret)
+void	ft_pf_putptrlow(uintptr_t p_ptr, ssize_t *p_ret)
 {
 	const char	*base;
 

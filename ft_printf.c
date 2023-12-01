@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cefuente <cefuente@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 18:21:56 by cesar             #+#    #+#             */
-/*   Updated: 2023/11/28 16:05:16 by cesar            ###   ########.fr       */
+/*   Updated: 2023/12/01 17:55:08 by cefuente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int	ft_printf(const char *format, ...)
 {
 	size_t		i;
-	size_t		ret;
-	size_t		*p_ret;
+	ssize_t		ret;
+	ssize_t		*p_ret;
 	va_list		args;
 
 	if (!format)
@@ -25,16 +25,14 @@ int	ft_printf(const char *format, ...)
 	ret = 0;
 	p_ret = &ret;
 	i = 0;
-	while (format[i])
+	while (format[i] && ret != -1)
 	{
-		if (format[i] != '%')
+		if (format[i] == '%' && format[i + 1])
+			switch_strings(format[++i], args, p_ret);
+		else if (format[i] == '%' && !format[i + 1])
+			return (ret = -1);
+		else
 			ft_pf_putchar(format[i], p_ret);
-		else if (format[i++] == '%')
-		{
-			while (!(ft_pf_strchr("cspdiuxX%", format[i]) && format[i]))
-				i++;
-			switch_strings(format[i], args, p_ret);
-		}
 		i++;
 	}
 	va_end(args);

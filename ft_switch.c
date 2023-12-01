@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_switch.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cefuente <cefuente@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 18:42:34 by cesar             #+#    #+#             */
-/*   Updated: 2023/11/29 11:52:50 by cesar            ###   ########.fr       */
+/*   Updated: 2023/12/01 17:52:59 by cefuente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 
-void	switch_strings(const char c, va_list args, size_t *p_ret)
+void	switch_strings(const char c, va_list args, ssize_t *p_ret)
 {
 	const char	*p_str;
 	char		p_char;
@@ -32,7 +32,7 @@ void	switch_strings(const char c, va_list args, size_t *p_ret)
 	return ;
 }
 
-void	switch_decimals(const char c, va_list args, size_t *p_ret)
+void	switch_decimals(const char c, va_list args, ssize_t *p_ret)
 {
 	int				p_int;
 	unsigned int	p_uint;
@@ -52,7 +52,7 @@ void	switch_decimals(const char c, va_list args, size_t *p_ret)
 	return ;
 }
 
-void	switch_hexa(const char c, va_list args, size_t *p_ret)
+void	switch_hexa(const char c, va_list args, ssize_t *p_ret)
 {
 	uintptr_t	p_ptr;
 
@@ -60,7 +60,10 @@ void	switch_hexa(const char c, va_list args, size_t *p_ret)
 	{
 		p_ptr = (uintptr_t)va_arg(args, void *);
 		if (!p_ptr)
-			return (ft_pf_putstr("(nil)", p_ret));
+		{
+			ft_pf_putstr("(nil)", p_ret);
+			return ;
+		}
 		ft_pf_putstr("0x", p_ret);
 		ft_pf_putptr(p_ptr, p_ret);
 	}
@@ -71,18 +74,16 @@ void	switch_hexa(const char c, va_list args, size_t *p_ret)
 	}
 	else if (c == 'X')
 	{
-		p_ptr = (uintptr_t) va_arg(args, void *);
-		ft_pf_putptrhigh(p_ptr, p_ret);
+		ft_pf_putptrhigh((p_ptr = (uintptr_t) va_arg(args, void *)), p_ret);
 	}
 	else
 		switch_else(c, p_ret);
 	return ;
 }
 
-void	switch_else(const char c, size_t *p_ret)
+void	switch_else(const char c, ssize_t *p_ret)
 {
 	if (c == '%')
 		ft_pf_putchar(c, p_ret);
-	else
-		return ;
+	return ;
 }
