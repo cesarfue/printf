@@ -3,44 +3,47 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cesar <cesar@student.42.fr>                +#+  +:+       +#+         #
+#    By: cefuente <cefuente@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/03 18:46:17 by cefuente          #+#    #+#              #
-#    Updated: 2023/11/28 17:43:04 by cesar            ###   ########.fr        #
+#    Updated: 2023/11/28 13:43:01 by cefuente         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	=	ft_numbers.c \
-			ft_strings.c \
-			ft_switch.c \
-			ft_printf.c \
-			main.c \
+	ft_strings.c \
+	ft_switch.c \
+	ft_printf.c 
 
 OBJS    =    ${SRCS:.c=.o}
-OBJS	:= $(addprefix build/, $(OBJS))
 
 HEADER    =    includes/ft_printf.h
 
-NAME    =    a.out
+NAME    =    libftprintf.a
 
 CC        =    cc
 
-FLAGS    =    -I includes
+AR        =    ar -rc
+
+FLAGS    =    -Wall -Wextra -Werror
 
 all        :    ${NAME}
 
-build/%.o        :    %.c ${HEADER}
+%.o        :    %.c ${HEADER}
 	${CC} ${FLAGS} -c $< -o $@
 
-${NAME}    :    ${OBJS}
-	${CC} ${FLAGS} -o ${NAME} ${OBJS}
+${NAME}    :    ${OBJS} Makefile
+	${AR} ${NAME} ${OBJS}
+
+bonus    :
+	@make SRCS="${SRCS}" HEADER="${HEADER}"
 
 clean    :
-	rm -f build/*.o
+	rm -f ${OBJS}
 
 fclean    :    clean
 	rm -f ${NAME}
 
 re        :    fclean all
 
-.PHONY    :    all clean fclean re bonus
+.PHONY    :    all clean fclean re

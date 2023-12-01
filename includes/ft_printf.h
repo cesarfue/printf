@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cefuente <cefuente@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 07:46:43 by cesar             #+#    #+#             */
-/*   Updated: 2023/11/28 15:51:13 by cefuente         ###   ########.fr       */
+/*   Updated: 2023/12/01 12:02:08 by cesar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	switch_decimals(const char c, va_list args, size_t *p_ret);
 void	switch_hexa(const char c, va_list args, size_t *p_ret);
 void	switch_else(const char c, size_t *p_ret);
 
-void	ft_pf_putchar(char c, size_t *p_ret);
+int		ft_pf_putchar(char c, size_t *p_ret);
 void	ft_pf_putstr(char *s, size_t *p_ret);
 void	ft_pf_putnbr(long n, size_t *p_ret);
 void	ft_pf_putptr(uintptr_t p_ptr, size_t *p_ret);

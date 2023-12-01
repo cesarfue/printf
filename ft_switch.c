@@ -6,7 +6,7 @@
 /*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 18:42:34 by cesar             #+#    #+#             */
-/*   Updated: 2023/11/29 11:52:50 by cesar            ###   ########.fr       */
+/*   Updated: 2023/12/01 11:59:24 by cesar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,5 @@ void	switch_else(const char c, size_t *p_ret)
 {
 	if (c == '%')
 		ft_pf_putchar(c, p_ret);
-	else
-		return ;
+	return ;
 }

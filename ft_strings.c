@@ -6,7 +6,7 @@
 /*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 10:20:14 by cefuente          #+#    #+#             */
-/*   Updated: 2023/11/23 19:35:07 by cesar            ###   ########.fr       */
+/*   Updated: 2023/12/01 12:02:00 by cesar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,10 @@ void	ft_pf_putstr(char *s, size_t *p_ret)
 		*p_ret += i;
 }
 
-void	ft_pf_putchar(char c, size_t *p_ret)
+int	ft_pf_putchar(char c, size_t *p_ret)
 {
 	if (write(1, &c, 1))
-		(*p_ret)++;
+		return ((*p_ret)++);
+	else
+		return (*p_ret = -1);
 }
