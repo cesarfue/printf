@@ -6,7 +6,7 @@
 #    By: cefuente <cefuente@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/03 18:46:17 by cefuente          #+#    #+#              #
-#    Updated: 2023/11/28 13:43:01 by cefuente         ###   ########.fr        #
+#    Updated: 2023/12/01 18:38:42 by cefuente         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,9 +34,6 @@ all        :    ${NAME}
 
 ${NAME}    :    ${OBJS} Makefile
 	${AR} ${NAME} ${OBJS}
-
-bonus    :
-	@make SRCS="${SRCS}" HEADER="${HEADER}"
 
 clean    :
 	rm -f ${OBJS}
