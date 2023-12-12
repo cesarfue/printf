@@ -6,18 +6,20 @@
 /*   By: cefuente <cefuente@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 20:27:55 by cesar             #+#    #+#             */
-/*   Updated: 2023/12/01 18:37:38 by cefuente         ###   ########.fr       */
+/*   Updated: 2023/12/12 18:08:05 by cefuente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 
-void	ft_pf_putnbr(long n, ssize_t *p_ret)
+ssize_t	ft_pf_putnbr(long n, ssize_t *p_ret)
 {
 	if (n == -2147483648)
 	{
 		if (write(1, "-2147483648", 11))
 			*p_ret += 11;
+		else
+			return (*p_ret = -1);
 	}
 	else if (n < 0)
 	{
@@ -30,12 +32,11 @@ void	ft_pf_putnbr(long n, ssize_t *p_ret)
 		ft_pf_putnbr(n % 10, p_ret);
 	}
 	else if (n < 10)
-	{
 		ft_pf_putchar(n + '0', p_ret);
-	}
+	return (0);
 }
 
-void	ft_pf_putptr(uintptr_t p_ptr, ssize_t *p_ret)
+ssize_t	ft_pf_putptr(uintptr_t p_ptr, ssize_t *p_ret)
 {
 	const char	*base;
 
@@ -44,15 +45,18 @@ void	ft_pf_putptr(uintptr_t p_ptr, ssize_t *p_ret)
 	{
 		if (write(1, &base[p_ptr % 16], 1))
 			(*p_ret)++;
+		else
+			return (*p_ret = -1);
 	}
 	else
 	{
 		ft_pf_putptr(p_ptr / 16, p_ret);
 		ft_pf_putptr(p_ptr % 16, p_ret);
 	}
+	return (0);
 }
 
-void	ft_pf_putptrhigh(unsigned int x_ptr, ssize_t *p_ret)
+ssize_t	ft_pf_putptrhigh(unsigned int x_ptr, ssize_t *p_ret)
 {
 	const char	*base;
 
@@ -61,15 +65,18 @@ void	ft_pf_putptrhigh(unsigned int x_ptr, ssize_t *p_ret)
 	{
 		if (write(1, &base[x_ptr % 16], 1))
 			(*p_ret)++;
+		else
+			return (*p_ret = -1);
 	}
 	else
 	{
 		ft_pf_putptrhigh(x_ptr / 16, p_ret);
 		ft_pf_putptrhigh(x_ptr % 16, p_ret);
 	}
+	return (0);
 }
 
-void	ft_pf_putptrlow(unsigned int x_ptr, ssize_t *p_ret)
+ssize_t	ft_pf_putptrlow(unsigned int x_ptr, ssize_t *p_ret)
 {
 	const char	*base;
 
@@ -78,12 +85,15 @@ void	ft_pf_putptrlow(unsigned int x_ptr, ssize_t *p_ret)
 	{
 		if (write(1, &base[x_ptr % 16], 1))
 			(*p_ret)++;
+		else
+			return (*p_ret = -1);
 	}
 	else
 	{
 		ft_pf_putptrlow(x_ptr / 16, p_ret);
 		ft_pf_putptrlow(x_ptr % 16, p_ret);
 	}
+	return (0);
 }
 
 size_t	ft_intlen(int n)
